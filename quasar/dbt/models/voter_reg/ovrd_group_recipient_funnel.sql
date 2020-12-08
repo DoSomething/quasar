@@ -11,9 +11,9 @@ WITH funnel_base AS (
         'group_id=([0-9]+)'
     ) AS group_id
   FROM
-    {{ ref('phoenix_events_combined') }}
+    {{ ref('snowplow_raw_events') }}
     pec
-    JOIN {{ ref('phoenix_sessions_combined') }}
+    JOIN {{ ref('snowplow_sessions') }}
     psc
     ON (
       pec.session_id = psc.session_id

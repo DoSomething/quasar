@@ -56,27 +56,13 @@ models:
           +materialized: incremental
           +post-hook:
             - "CREATE INDEX {{ get_index_name(this, 'event_id') }} (event_id)"
-            - "{{ grant_select_to(this, ['dsanalyst']) }}"
-          +tags: "phoenix_events"
-        snowplow_sessions:
-          +materialized: incremental
-          +post-hook:
-            - "CREATE INDEX {{ get_index_name(this, 'landing_datetime_landing_page') }} (landing_datetime, landing_page)"
-            - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
-          +tags: "phoenix_events"
-        phoenix_events_combined:
-          +alias: phoenix_events_combined
-          +materialized: incremental
-          +post-hook:
-            - "CREATE INDEX {{ get_index_name(this, 'event_datetime_event_name_event_id') }} (event_datetime, event_name, event_id)"
             - "CREATE INDEX {{ get_index_name(this, 'session_id') }} (session_id)"
             - "CREATE INDEX {{ get_index_name(this, 'campaign_id') }} (campaign_id) where campaign_id is not null"
             - "CREATE INDEX {{ get_index_name(this, 'device_id') }} (device_id)"
             - "CREATE INDEX {{ get_index_name(this, 'event_name') }} (event_name)"
-            - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
+            - "{{ grant_select_to(this, ['dsanalyst']) }}"
           +tags: "phoenix_events"
-        phoenix_sessions_combined:
-          +alias: phoenix_sessions_combined
+        snowplow_sessions:
           +materialized: incremental
           +post-hook:
             - "CREATE INDEX {{ get_index_name(this, 'landing_datetime_landing_page') }} (landing_datetime, landing_page)"

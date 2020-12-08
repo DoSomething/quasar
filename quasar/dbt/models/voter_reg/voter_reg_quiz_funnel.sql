@@ -17,9 +17,9 @@ WITH funnel_base AS (
     pec.northstar_id,
     pec.session_id
   FROM
-    {{ ref('phoenix_events_combined') }}
+    {{ ref('snowplow_raw_events') }}
     pec
-    JOIN {{ ref('phoenix_sessions_combined') }}
+    JOIN {{ ref('snowplow_sessions') }}
     psc
     ON (
       pec.session_id = psc.session_id
@@ -160,8 +160,10 @@ funnel_landing AS (
     --TBD: maybe later we can create additional groups (social, search, etc)
     MAX(
       CASE
-        WHEN pec.page_utm_campaign ILIKE '%niche%' THEN 'niche'
-        WHEN pec.page_utm_campaign ILIKE '%fastweb%' THEN 'fastweb'
+        -- prev known as page_utm_campaign
+        WHEN pec.utm_campaign ILIKE '%niche%' THEN 'niche'
+        -- prev known as page_utm_campaign
+        WHEN pec.utm_campaign ILIKE '%fastweb%' THEN 'fastweb'
         WHEN psc.session_referrer_host ILIKE '%dosomething%' THEN 'dosomething'
         ELSE 'other'
       END
@@ -184,9 +186,9 @@ funnel_landing AS (
       END
     ) AS click_join_us
   FROM
-    {{ ref('phoenix_events_combined') }}
+    {{ ref('snowplow_raw_events') }}
     pec
-    JOIN {{ ref('phoenix_sessions_combined') }}
+    JOIN {{ ref('snowplow_sessions') }}
     psc
     ON (
       pec.session_id = psc.session_id
@@ -434,9 +436,9 @@ funnel_auth AS (
       END
     ) AS clicked_submit_photo
   FROM
-    {{ ref('phoenix_events_combined') }}
+    {{ ref('snowplow_raw_events') }}
     pec
-    JOIN {{ ref('phoenix_sessions_combined') }}
+    JOIN {{ ref('snowplow_sessions') }}
     psc
     ON (
       pec.session_id = psc.session_id
