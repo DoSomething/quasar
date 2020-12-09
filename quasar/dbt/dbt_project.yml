@@ -60,7 +60,7 @@ models:
             - "CREATE INDEX {{ get_index_name(this, 'campaign_id') }} (campaign_id) where campaign_id is not null"
             - "CREATE INDEX {{ get_index_name(this, 'device_id') }} (device_id)"
             - "CREATE INDEX {{ get_index_name(this, 'event_name') }} (event_name)"
-            - "{{ grant_select_to(this, ['dsanalyst']) }}"
+            - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
           +tags: "phoenix_events"
         snowplow_sessions:
           +materialized: incremental
