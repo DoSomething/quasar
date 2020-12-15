@@ -1,7 +1,7 @@
 --All Device ID - Northstar ID Combinations
 WITH devices_all AS (
     SELECT device_id, northstar_id
-    FROM {{ ref('phoenix_events_combined') }}
+    FROM {{ ref('snowplow_raw_events') }}
     GROUP BY device_id, northstar_id
 ),
 --Devices purely Anonymous (Remove Devices ever associated with NSIDs)

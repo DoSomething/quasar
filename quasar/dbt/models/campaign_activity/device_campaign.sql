@@ -64,7 +64,7 @@ FROM
               event_name,
               event_datetime
             FROM
-              {{ ref('phoenix_events_combined') }}
+              {{ ref('snowplow_raw_events') }}
             WHERE
               campaign_id IS NOT NULL
           ) dca --device_campaign_all
@@ -75,5 +75,5 @@ FROM
           4,
           5
       ) dcj --device_campaign_journey
-      JOIN {{ ref('phoenix_sessions_combined') }} s ON (dcj.min_view_session_id = s.session_id)
+      JOIN {{ ref('snowplow_sessions') }} s ON (dcj.min_view_session_id = s.session_id)
   ) fj --full_journey

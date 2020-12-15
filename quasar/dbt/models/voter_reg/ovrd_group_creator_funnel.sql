@@ -12,9 +12,9 @@ WITH funnel_base AS (
     psc.session_utm_campaign,
     psc.session_referrer_host
   FROM
-    {{ ref('phoenix_events_combined') }}
+    {{ ref('snowplow_raw_events') }}
     pec
-    JOIN {{ ref('phoenix_sessions_combined') }}
+    JOIN {{ ref('snowplow_sessions') }}
     psc
     ON (
       pec.session_id = psc.session_id

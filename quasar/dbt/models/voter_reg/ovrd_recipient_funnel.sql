@@ -6,9 +6,9 @@ WITH funnel_base AS (
     pec.event_name,
     pec.event_datetime
   FROM
-    {{ ref('phoenix_events_combined') }}
+    {{ ref('snowplow_raw_events') }}
     pec
-    JOIN {{ ref('phoenix_sessions_combined') }}
+    JOIN {{ ref('snowplow_sessions') }}
     psc
     ON (
       pec.session_id = psc.session_id
