@@ -80,6 +80,8 @@ models:
   - name: snowplow_payload_event
     description: Table containing extra data from events in snowplow_base_event table
     columns:
+        - name: action_id
+          description: '{{ doc("action_id") }}'
         - name: block_id
           description: '{{ doc("block_id") }}'
         - name: campaign_id

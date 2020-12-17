@@ -112,7 +112,7 @@ Whether the post has been accepted to be displayed to the public on the website
 {% enddocs %}
 
 {% docs action_id %}
-Internal identifier of the action
+Internal identifier of the campaign action
 {% enddocs %}
 
 {% docs location %}
