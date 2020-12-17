@@ -1,6 +1,7 @@
 -- Combines attributes from the ft_snowplow.event and ft_snowplow.snowplow_event schemas
 -- removes duplicate events by event_id
 SELECT DISTINCT ON (b.event_id, b.event_name, b.event_datetime)
+	p.action_id,
 	b.browser_size,
 	p.url AS clicked_link_url,
 	b.device_id,
