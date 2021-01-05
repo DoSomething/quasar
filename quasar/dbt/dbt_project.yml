@@ -29,6 +29,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 # You can define configurations for models in the `source-paths` directory here.
 # Using these configurations, you can enable or disable models, change how they
 # are materialized, and more!
+vars:
+  'snowplow:timezone': 'America/New_York'
+  'snowplow:events': "{{ ref('stg_snowplow_events') }}"
+  'snowplow:context:web_page': "{{ ref('stg_snowplow_web_page_contexts') }}"
+  'snowplow:context:performance_timing': false
+  'snowplow:context:useragent': false
+  'snowplow:pass_through_columns': []
+
+
 
 # In this example config, we tell dbt to build all models in the example/ directory
 # as views (the default). These settings can be overridden in the individual model files
