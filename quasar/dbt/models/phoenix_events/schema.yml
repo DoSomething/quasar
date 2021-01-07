@@ -236,7 +236,7 @@ models:
       - name: utm_source
         description: '{{ doc("utm_source") }}'
 
-  - name: snowplow_sessions
+  - name: _snowplow_sessions
     description: Table containing user session data derived from snowplow_raw_events
     columns:
         - name: days_since_last_session

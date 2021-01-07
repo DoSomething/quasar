@@ -24,14 +24,21 @@ unnested as (
         payload::jsonb #>> '{utmSource}' AS utm_source,
         payload::jsonb #>> '{utmMedium}' AS utm_medium,
         payload::jsonb #>> '{utmCampaign}' AS utm_campaign,
-        payload::jsonb #>> '{url}' AS url
+        payload::jsonb #>> '{url}' AS link_clicked_url
 
     from source
 )
 
 select * from unnested
 
-{% if is_incremental() %}
--- this filter will only be applied on an incremental run
-WHERE _fivetran_synced >= (select max(spe.ft_timestamp) from {{this}} spe)
+where 1=1
+
+{% if target.name == 'dev' %}
+
+    and ft_timestamp >= current_date -  {{ var('testing_days_of_data') }}
+
+{% elif is_incremental() %}
+
+    and ft_timestamp >= (select max(ft_timestamp) from {{ this }} )
+
 {% endif %}

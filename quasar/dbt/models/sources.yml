@@ -70,6 +70,7 @@ sources:
       - name: event
       - name: snowplow_event
       - name: ua_parser_context
+      - name: web_page
 
   - name: tmc
     schema: '{{ env_var("TMC_USERS_MATCHED_SCHEMA") }}'

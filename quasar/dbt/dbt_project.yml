@@ -30,12 +30,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Using these configurations, you can enable or disable models, change how they
 # are materialized, and more!
 vars:
+  testing_days_of_data: 1
   'snowplow:timezone': 'America/New_York'
   'snowplow:events': "{{ ref('stg_snowplow_events') }}"
-  'snowplow:context:web_page': "{{ ref('stg_snowplow_web_page_contexts') }}"
+  'snowplow:context:web_page': "{{ ref('stg_snowplow_web_page') }}"
   'snowplow:context:performance_timing': false
   'snowplow:context:useragent': false
   'snowplow:pass_through_columns': []
+  'snowplow:page_view_lookback_days': 1
 
 
 
@@ -71,7 +73,7 @@ models:
             - "CREATE INDEX {{ get_index_name(this, 'event_name') }} (event_name)"
             - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
           +tags: "phoenix_events"
-        snowplow_sessions:
+        _snowplow_sessions:
           +materialized: incremental
           +post-hook:
             - "CREATE INDEX {{ get_index_name(this, 'landing_datetime_landing_page') }} (landing_datetime, landing_page)"
