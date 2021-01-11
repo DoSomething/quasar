@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_snowplow_events
+    description: combine all base tables into single event model
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+          
+  - name: stg_snowplow_web_page
+    description: mapping of event_ids to web page visit ids
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique

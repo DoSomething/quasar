@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: base_snowplow_events
+    description: staging table of the fivetran synced events table
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+          
+  - name: base_snowplow_payload_events
+    description: staging table of flattened JSON payloads
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
+          
+  - name: base_snowplow_ua_parser_context
+    description: staging table of the user agent context data
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique

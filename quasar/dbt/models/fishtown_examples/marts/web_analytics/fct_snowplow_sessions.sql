@@ -8,6 +8,7 @@
 with sessions as (
 
     select * from {{ref('snowplow_sessions')}}
+    -- this is an output from the snowplow package
 
     {% if is_incremental() %}
         where session_start >= dateadd(day, -2, (select max(session_start) from {{this}}))
@@ -22,7 +23,8 @@ custom_structured_events as (
     {% if is_incremental() %}
         where collector_tstamp >= dateadd(day, -2, (select max(session_start) from {{this}}))
     {% endif %}
-)
+    
+),
 
 se_summary as (
     

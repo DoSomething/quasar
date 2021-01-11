@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: int_snowplow_custom_structured_events
+    description: filter events table to structured events, add session flags
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique

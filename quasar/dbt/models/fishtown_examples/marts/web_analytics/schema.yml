@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_snowplow_page_views
+    description: enriched model of snowplow page views
+    columns:
+      - name: page_view_id
+        tests:
+          - not_null
+          - unique
+  - name: fct_snowplow_sessions
+    description: enriched model of snowplow sessions with session conversion flags
+    columns:
+      - name: session_id
+        tests:
+          - not_null
+          - unique
