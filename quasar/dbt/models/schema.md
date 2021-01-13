@@ -96,7 +96,7 @@ When the item was updated in UTC (eg. 2018-01-01 12:00:00)
 {% enddocs %}
 
 {% docs text %}
-Text of the post (e.g. "Zoo animals and a super hero trying to help too!") 
+Text of the post (e.g. "Zoo animals and a super hero trying to help too!")
 {% enddocs %}
 
 {% docs signup_id %}
@@ -404,15 +404,15 @@ Marks rows that were deleted in the source table
 {% enddocs %}
 
 {% docs reportback %}
-Whether the post is a reportback 
+Whether the post is a reportback
 {% enddocs %}
 
 {% docs active %}
-Whether the user is active 
+Whether the user is active
 {% enddocs %}
 
 {% docs anonymous %}
-Whether the user is anonymous when making the post 
+Whether the user is anonymous when making the post
 {% enddocs %}
 
 {% docs callpower_campaign_id %}
@@ -420,7 +420,7 @@ Unique ID corresponding to the Callpower campaign. Callpower allows users to rec
 {% enddocs %}
 
 {% docs quiz %}
-Whether the post is a quiz 
+Whether the post is a quiz
 {% enddocs %}
 
 {% docs action_type %}
@@ -508,7 +508,7 @@ Timestamp of when user unsubscribed from email or sms
 {% enddocs %}
 
 {% docs voter_reg_acquisition %}
-Whether the user was an acquisition through voter registration efforts. 
+Whether the user was an acquisition through voter registration efforts.
 {% enddocs %}
 
 {% docs last_logged_in %}
@@ -544,7 +544,7 @@ User's last name
 {% enddocs %}
 
 {% docs voter_registration_status %}
-User's registration status. (e.g. registration_complete, confirmed, uncertain) 
+User's registration status. (e.g. registration_complete, confirmed, uncertain)
 {% enddocs %}
 
 {% docs finish_with_state %}
@@ -596,15 +596,15 @@ Details of the origin of the user. (e.g. tell_a_friend, other, opt_in_path/19798
 {% enddocs %}
 
 {% docs badges %}
-Whether the user has any badges. 
+Whether the user has any badges.
 {% enddocs %}
 
 {% docs refer_friends %}
-Whether the user is a part of the refer a friend campaign. 
+Whether the user is a part of the refer a friend campaign.
 {% enddocs %}
 
 {% docs subscribed_member %}
-Whether the user is subscribed. 
+Whether the user is subscribed.
 {% enddocs %}
 
 {% docs last_updated_at %}
@@ -877,4 +877,8 @@ The goal of the group
 
 {% docs group_name %}
 The name of the group
+{% enddocs %}
+
+{% docs hours_spent %}
+The number of hours spent for a specific action. Entered by member
 {% enddocs %}

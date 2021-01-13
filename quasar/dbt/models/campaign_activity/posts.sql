@@ -24,7 +24,7 @@ SELECT
 	a.quiz AS is_quiz,
 	a.reportback AS is_reportback,
 	a.scholarship_entry AS is_scholarship_entry,
-	a.time_commitment AS is_time_commitment,
+	a.time_commitment AS time_commitment,
 	a.volunteer_credit AS is_volunteer_credit,
 	pd.location,
 	pd.northstar_id AS northstar_id,
@@ -65,12 +65,13 @@ SELECT
 	pd.status AS "status",
 	pd.text,
 	pd."type" AS "type",
+	pd.hours_spent,
 	pd.url AS url,
 	a.verb,
 	CASE
 		WHEN rtv.tracking_source='ads'
 		THEN 'ads'
-		ELSE split_part(substring(rtv.tracking_source from 'source\:(.+)'), ',', 1) 
+		ELSE split_part(substring(rtv.tracking_source from 'source\:(.+)'), ',', 1)
 	END AS vr_source,
 	split_part(substring(rtv.tracking_source from 'source_details\:(.+)'), ',', 1) AS vr_source_details
 FROM {{ source('rogue', 'posts') }} pd
