@@ -35,6 +35,8 @@ models:
         description: Club id
       - name: created_at
         description: '{{ doc("created_at") }}'
+      - name: hours_spent
+        description: '{{ doc("hours_spent") }}'
       - name: id
         description: '{{ doc("id") }}'
       - name: is_accepted
@@ -119,6 +121,9 @@ models:
       - name: scholarship_entry
         description: '{{ doc("scholarship_entry") }}'
 
+      - name: hours_spent
+        description: '{{ doc("hours_spent") }}'
+        
       - name: location
         description: '{{ doc("location") }}'
 
