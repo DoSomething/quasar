@@ -39,6 +39,7 @@ SELECT
 	pd.source AS post_source,
 	pd.source_bucket AS post_source_bucket,
 	pd.status AS post_status,
+	pd.hours_spent as hours_spent,
 	pd.created_at AS post_created_at,
 	pd.postal_code,
 	CASE
