@@ -35,7 +35,7 @@ se_summary as (
         max(case when is_campaign_signup then 1 else 0 end) is_campaign_signup_session,
         max(case when is_campaign_post_visit then 1 else 0 end) is_campaign_post_session,
         sum(case when is_campaign_signup then 1 else 0 end) total_campaign_signups_in_session,
-        sum(case when is_campaign_signup then 1 else 0 end) total_campaign_signups_in_session
+        sum(case when is_campaign_post_visit then 1 else 0 end) total_campaign_posts_in_session
     
     from custom_structured_events
     
