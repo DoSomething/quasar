@@ -422,3 +422,8 @@ models:
             - "CREATE INDEX {{ get_index_name(this, 'timestamp_nulls_first_event_type') }} (timestamp nulls first, event_type)"
             - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
           +tags: "cio"
+
+vars:
+  zendesk_source:
+    zendesk_database: quasar
+    zendesk_schema: ft_zendesk
