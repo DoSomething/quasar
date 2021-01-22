@@ -428,3 +428,4 @@ models:
           +materialized: table
           +post-hook:
             - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
+          +tags: "nps"
