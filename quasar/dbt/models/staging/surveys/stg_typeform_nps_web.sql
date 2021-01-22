@@ -1,9 +1,9 @@
 SELECT
-token as survey_id
-, nps_score
-, nps_reason
-, northstar_id
+token::varchar(256) as survey_id
+, nps_score::int
+, nps_reason::text
+, northstar_id::varchar(256)
 , url as surveyed_on_url
-, submit_date as created_at
+, submitted_at::timestamp as created_at
 
   FROM {{ source('gsheets', 'typeform_web_nps_survey') }}

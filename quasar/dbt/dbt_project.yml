@@ -36,6 +36,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   ds_dbt:
       # Applies to all files under models/phoenix_events/
+
       phoenix_events:
         snowplow_base_event:
           +alias: snowplow_base_event
@@ -422,3 +423,8 @@ models:
             - "CREATE INDEX {{ get_index_name(this, 'timestamp_nulls_first_event_type') }} (timestamp nulls first, event_type)"
             - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
           +tags: "cio"
+      member_feedback:
+        fct_nps_web_responses:
+          +materialized: table
+          +post-hook:
+            - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"

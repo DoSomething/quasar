@@ -1,0 +1,15 @@
+version: 2
+
+models:
+
+  - name: fct_nps_web_responses
+    description: A table containing all nps web responses from 2018 onwards
+    columns:
+        - name: survey_id
+        - name: nps_score
+        - name: nps_promoter_cat
+        - name: nps_reason
+        - name: northstar_id
+        - name: surveyed_on_url
+        - name: legacy_campaign_id
+        - name: created_at
