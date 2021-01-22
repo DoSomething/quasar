@@ -76,12 +76,12 @@ sources:
     tables:
       - name: tmc_users_matched
 
-  - name: historical_survey
+  - name: survey
     schema: '{{ env_var("SURVEY_SCHEMA") }}'
     tables:
-      - name: 2018_2020_raw_nps_typeform_web
+      - name: 2018_2020_typeform_web_nps
 
   - name: gsheets
     schema: '{{ env_var("FT_GOOGLE_SHEETS_SCHEMA") }}'
     tables:
-      - name: 2018_2020_raw_nps_typeform_web
+      - name: typeform_web_nps_survey
