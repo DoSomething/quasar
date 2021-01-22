@@ -5,7 +5,7 @@ models:
   - name: fct_nps_web_responses
     description: A table containing all nps web responses from 2018 onwards
     columns:
-        - name: survey_id
+        - name: survey_response_id
         - name: nps_score
         - name: nps_promoter_cat
         - name: nps_reason

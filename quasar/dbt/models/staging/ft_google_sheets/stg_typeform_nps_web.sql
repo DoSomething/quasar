@@ -1,5 +1,5 @@
 SELECT
-token::varchar(256) as survey_id
+token::varchar(256) as survey_response_id
 , nps_score::int
 , nps_reason::text
 , northstar_id::varchar(256)

@@ -1,6 +1,6 @@
 with nps_web_historic as
     (select
-      survey_id
+      survey_response_id
       , nps_score
       , (case when nps_score <= 6 then 'detractor'
       	   when nps_score <= 8 then 'passive'
@@ -16,7 +16,7 @@ with nps_web_historic as
 
  , nps_web_current as
     (select
-         survey_id
+         survey_response_id
          , nps_score
          , (case when nps_score <= 6 then 'detractor'
         	   when nps_score <= 8 then 'passive'
