@@ -882,3 +882,23 @@ The name of the group
 {% docs hours_spent %}
 The number of hours spent for a specific action. Entered by member
 {% enddocs %}
+
+{% docs survey_response_id %}
+The unique identifier for the survey response id
+{% enddocs %}
+
+{% docs nps_score %}
+The rating for the Net Promotoer Score survey question how likely would you be to recommend DS to a friend
+{% enddocs %}
+
+{% docs nps_promoter_cat %}
+The Net Promotoer category (promoter, passive, detractor) based on the nps score
+{% enddocs %}
+
+{% docs nps_reason %}
+Open text response providing reason for the score
+{% enddocs %}
+
+{% docs surveyed_on_url %}
+The presumed url path when survey was served to user
+{% enddocs %}
