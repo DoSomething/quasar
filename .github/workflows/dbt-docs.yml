@@ -19,7 +19,7 @@ jobs:
           python -m pip install pipenv
       - name: Install dependencies with Pipenv
         run: |
-          pipenv install 
+          pipenv install
       - name: DBT Generate
         working-directory: ./quasar/dbt
         run: |
@@ -42,6 +42,8 @@ jobs:
           TMC_USERS_MATCHED_SCHEMA: ${{ secrets.TMC_USERS_MATCHED_SCHEMA }}
           HISTORICAL_ANALYTICS_SCHEMA: ${{ secrets.HISTORICAL_ANALYTICS_SCHEMA }}
           CIO_WEBHOOK_EVENTS_SCHEMA: ${{ secrets.CIO_WEBHOOK_EVENTS_SCHEMA }}
+          SURVEY_SCHEMA: ${{ secrets.SURVEY_SCHEMA }}
+          FT_GOOGLE_SHEETS_SCHEMA: ${{ secrets.FT_GOOGLE_SHEETS_SCHEMA }}
       - name: Move docs files to root dir
         run: |
           mv ./docs ~/
