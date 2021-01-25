@@ -18,3 +18,4 @@ docs/catalog.json
 docs/graph.gpickle
 docs/compiled/
 .python-version
+docs/run/*
