@@ -36,6 +36,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   ds_dbt:
       # Applies to all files under models/phoenix_events/
+
       phoenix_events:
         snowplow_base_event:
           +alias: snowplow_base_event
@@ -423,7 +424,16 @@ models:
             - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
           +tags: "cio"
 
+
 vars:
   zendesk_source:
     zendesk_database: quasar
     zendesk_schema: ft_zendesk
+
+      member_feedback:
+        fct_nps_web_responses:
+          +materialized: table
+          +post-hook:
+            - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
+          +tags: "nps"
+
