@@ -429,7 +429,3 @@ models:
           +post-hook:
             - "{{ grant_select_to(this, ['dsanalyst', 'looker']) }}"
           +tags: "nps"
-vars:
-  zendesk_source:
-    zendesk_database: quasar
-    zendesk_schema: ft_zendesk
